@@ -2,6 +2,7 @@ package com.example.needylivewallpaper.service
 
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.res.AssetManager
 import android.graphics.Canvas
 import android.os.Handler
 import android.os.Looper
@@ -13,12 +14,20 @@ import com.example.needylivewallpaper.utils.phone.Screen
 import com.example.needylivewallpaper.utils.phone.Time
 
 class NeedyWallpaperService : WallpaperService() {
+    
+    companion object{
+        lateinit var assets: AssetManager
+    }
+    
     override fun onCreateEngine(): Engine {
         return NeedyEngine()
     }
 
     inner class NeedyEngine : Engine(){
-
+        
+        init {
+            NeedyWallpaperService.assets = assets
+        }
         private var isVisible = false;
         private val handler = Handler(Looper.getMainLooper())
 
@@ -53,7 +62,7 @@ class NeedyWallpaperService : WallpaperService() {
         ) {
             Screen.width = width.toFloat()
             Screen.height = height.toFloat()
-            Renderer.init(assets)
+            Main.main()
         }
 
 
