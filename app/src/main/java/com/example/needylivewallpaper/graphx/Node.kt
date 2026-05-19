@@ -3,19 +3,26 @@ package com.example.needylivewallpaper.graphx
 import android.graphics.Bitmap
 import com.example.needylivewallpaper.utils.Vector2
 import com.example.needylivewallpaper.utils.phone.Screen
+import kotlin.properties.Delegates
 
-abstract class Node(var bitmap: Bitmap) {
+abstract class Node(val layer: Layer, var bitmap: Bitmap) {
+
+    init {
+        layer.add(this)
+    }
 
     var id: String ?= null
-    var position: Vector2 = Vector2(0f, 0f)
-        set(value) {
-            val centerX = bitmap.width / 2f
-            val centerY = bitmap.height / 2f
 
-            val screenCenter = Screen.getCenter
+    var position: Vector2 by Delegates.vetoable(Vector2(0f, 0f)){
+        _, _, new ->
 
-            val pos = Vector2(screenCenter.x - centerX, screenCenter.y - centerY)
+        val screenXLimit = layer.size.width / 2f
+        val screenYLimit = layer.size.height / 2f
 
-            field = Vector2(pos.x + value.x, pos.y + value.y)
-        }
+        new.x >= -screenXLimit && new.x <= screenXLimit && new.y >= -screenYLimit && new.y <= screenYLimit
+    }
+
+    fun getX(): Float{return position.x}
+    fun getY(): Float{return position.y}
+
 }
