@@ -9,7 +9,6 @@ import android.os.Looper
 import android.service.wallpaper.WallpaperService
 import android.view.SurfaceHolder
 import com.example.needylivewallpaper.graphx.Renderer
-import com.example.needylivewallpaper.utils.Logger.logI
 import com.example.needylivewallpaper.utils.phone.Screen
 import com.example.needylivewallpaper.utils.phone.Time
 
@@ -28,7 +27,7 @@ class NeedyWallpaperService : WallpaperService() {
         init {
             NeedyWallpaperService.assets = assets
         }
-        private var isVisible = false;
+        private var isVisible = false
         private val handler = Handler(Looper.getMainLooper())
 
         private val myRunnable = object : Runnable {
@@ -37,6 +36,8 @@ class NeedyWallpaperService : WallpaperService() {
                 handler.postDelayed(this, 16L)
             }
         }
+
+        val main = Main()
 
         override fun onVisibilityChanged(visible: Boolean) {
             isVisible = true
@@ -62,7 +63,7 @@ class NeedyWallpaperService : WallpaperService() {
         ) {
             Screen.width = width.toFloat()
             Screen.height = height.toFloat()
-            Main.main()
+            main.start()
         }
 
 
