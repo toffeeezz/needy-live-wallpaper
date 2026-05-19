@@ -35,7 +35,6 @@ object ResourceManager {
 
         val key = bitmapCache.entries.find { it.value == bitmap }?.key ?: return
 
-        bitmapCache[key]!!.recycle()
         bitmapCache.remove(key)
     }
 
