@@ -6,7 +6,7 @@ import com.example.needylivewallpaper.utils.Logger.logE
 
 abstract class Container {
     val children: ArrayList<Node> = arrayListOf()
-    var isVisible = false
+    var isVisible = true
 
     fun add(node: Node){
         if(children.contains(node)){
