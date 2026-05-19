@@ -5,24 +5,13 @@ import com.example.needylivewallpaper.graphx.Renderer
 
 class Main {
 
-
-    companion object{
-      fun main(){
-
-          val background = Background()
+    lateinit var background: Background
 
 
 
-          background.show()
+    fun start(){
+        background = Background()
 
-
-
-
-
-
-
-
-          Renderer.addQueue(background)
-      }
+        Renderer.addQueue(background)
     }
 }
