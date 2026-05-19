@@ -47,10 +47,14 @@ class Background : LayerManager() {
     private fun updateBars(state: Time.State) {
         if (state == currentState) return
 
+        val oldBitmap = sideBar.bitmap
         val newBitmap = ResourceManager.load(NeedyWallpaperService.assets, barAssetFor(state))
 
 
         sideBar.bitmap = newBitmap
+        if (sideBar.bitmap !== oldBitmap)
+            ResourceManager.removeFromCache(oldBitmap)
+
 
         currentState = state
         logD("Current state is: $currentState")
