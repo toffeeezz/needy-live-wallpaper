@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.util.Log
-import com.example.needylivewallpaper.utils.Logger.logI
 import java.time.LocalTime
 import kotlin.properties.Delegates
 
@@ -14,7 +13,7 @@ object Time {
         MORNING, AFTERNOON, EVENING
     }
 
-    var currentState: State by Delegates.observable(State.MORNING) {_, oldValue, newValue ->
+    var currentState: State by Delegates.observable(State.MORNING) {_,_, newValue ->
         run {
             onStateChanged?.invoke(newValue)
         }
