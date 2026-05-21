@@ -8,7 +8,7 @@ import android.os.Handler
 import android.os.Looper
 import android.service.wallpaper.WallpaperService
 import android.view.SurfaceHolder
-import com.example.needylivewallpaper.graphx.Renderer
+import com.example.needylivewallpaper.graphx.render.Renderer
 import com.example.needylivewallpaper.utils.phone.Screen
 import com.example.needylivewallpaper.utils.phone.Time
 
@@ -61,8 +61,8 @@ class NeedyWallpaperService : WallpaperService() {
             width: Int,
             height: Int
         ) {
-            Screen.width = width.toFloat()
-            Screen.height = height.toFloat()
+            Screen.width = width
+            Screen.height = height
             main.start()
         }
 
