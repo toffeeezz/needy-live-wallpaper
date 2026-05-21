@@ -1,10 +1,11 @@
 package com.example.needylivewallpaper.utils.phone
 
+import android.util.Size
 import com.example.needylivewallpaper.utils.Vector2
 
 object Screen {
-    var width = 0f
-    var height = 0f
+    var width = 0
+    var height = 0
 
-    val getCenter get() = Vector2(width / 2f, height / 2f)
+    val getCenter get() = Size((width / 2), (height / 2))
 }
