@@ -3,6 +3,7 @@ package com.example.needylivewallpaper.comp
 import android.util.Size
 import com.example.needylivewallpaper.graphx.render.SimpleLayer
 import com.example.needylivewallpaper.graphx.StaticNode
+import com.example.needylivewallpaper.graphx.render.Layer
 import com.example.needylivewallpaper.graphx.render.LayerManager
 import com.example.needylivewallpaper.service.NeedyWallpaperService
 import com.example.needylivewallpaper.utils.Logger.logD
@@ -10,8 +11,9 @@ import com.example.needylivewallpaper.utils.ResourceManager
 import com.example.needylivewallpaper.utils.phone.Screen
 import com.example.needylivewallpaper.utils.phone.Time
 
-class Background : LayerManager() {
+class Background : LayerManager {
 
+    override val layers: ArrayList<Layer> = arrayListOf()
     companion object {
         const val DEFAULT = "backgrounds/desktop_wallpaper.png"
         const val MORNING_BAR = "sidebar/morning.png"
