@@ -1,7 +1,6 @@
-package com.example.needylivewallpaper.graphx
+package com.example.needylivewallpaper.graphx.render
 
 import android.graphics.Canvas
-import com.example.needylivewallpaper.comp.LayerManager
 import com.example.needylivewallpaper.utils.Logger.logE
 
 object Renderer {
