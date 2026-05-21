@@ -1,6 +1,7 @@
 package com.example.needylivewallpaper.graphx
 
 import android.graphics.Bitmap
+import android.util.Size
 import com.example.needylivewallpaper.graphx.render.Layer
 import com.example.needylivewallpaper.utils.Vector2
 import kotlin.properties.Delegates
@@ -21,6 +22,11 @@ abstract class Node(val layer: Layer, var bitmap: Bitmap) {
 
         new.x >= -screenXLimit && new.x <= screenXLimit && new.y >= -screenYLimit && new.y <= screenYLimit
     }
+
+    val size: Size
+        get() {
+            return Size(bitmap.width, bitmap.height)
+        }
 
     fun getX(): Float{return position.x}
     fun getY(): Float{return position.y}
