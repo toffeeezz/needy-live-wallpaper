@@ -1,16 +1,11 @@
-package com.example.needylivewallpaper.graphx
+package com.example.needylivewallpaper.graphx.render
 
 import android.graphics.Canvas
 import android.util.Size
-import androidx.core.util.component1
-import androidx.core.util.component2
 import com.example.needylivewallpaper.utils.Logger.logD
 import com.example.needylivewallpaper.utils.Vector2
-import com.example.needylivewallpaper.utils.phone.Screen
 
-open class SimpleLayer(zOrder: Int) : Layer(zOrder) {
-
-    override var size: Size = Size(Screen.width.toInt(), Screen.height.toInt())
+open class SimpleLayer(size: Size ?= null, zOrder: Int) : Layer(size, zOrder) {
 
     override fun drawAllChildren(canvas: Canvas) {
         if(!isVisible) return
