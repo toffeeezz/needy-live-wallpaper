@@ -1,12 +1,24 @@
-package com.example.needylivewallpaper.graphx
+package com.example.needylivewallpaper.graphx.render
 
 import android.graphics.Canvas
 import android.util.Size
+import com.example.needylivewallpaper.graphx.Node
 import com.example.needylivewallpaper.utils.Logger.logE
+import com.example.needylivewallpaper.utils.phone.Screen
+import kotlin.properties.Delegates
 
-abstract class Layer(var zOrder: Int) {
+abstract class Layer(size: Size ?= null, var zOrder: Int) {
 
-    abstract var size: Size
+    var size: Size by Delegates.vetoable(Size(0, 0)){
+        _, _, new ->
+        new.width in 0..Screen.width && new.height in 0..Screen.height
+    }
+
+    init {
+        this.size = size ?: Size(0, 0)
+    }
+
+
     val children: ArrayList<Node> = arrayListOf()
     var isVisible = true
 
