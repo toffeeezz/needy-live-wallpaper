@@ -1,8 +1,8 @@
 package com.example.needylivewallpaper.graphx
 
 import android.graphics.Bitmap
+import com.example.needylivewallpaper.graphx.render.Layer
 import com.example.needylivewallpaper.utils.Vector2
-import com.example.needylivewallpaper.utils.phone.Screen
 import kotlin.properties.Delegates
 
 abstract class Node(val layer: Layer, var bitmap: Bitmap) {
