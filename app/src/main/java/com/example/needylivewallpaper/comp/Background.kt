@@ -1,10 +1,13 @@
 package com.example.needylivewallpaper.comp
 
-import com.example.needylivewallpaper.graphx.SimpleLayer
+import android.util.Size
+import com.example.needylivewallpaper.graphx.render.SimpleLayer
 import com.example.needylivewallpaper.graphx.StaticNode
+import com.example.needylivewallpaper.graphx.render.LayerManager
 import com.example.needylivewallpaper.service.NeedyWallpaperService
 import com.example.needylivewallpaper.utils.Logger.logD
 import com.example.needylivewallpaper.utils.ResourceManager
+import com.example.needylivewallpaper.utils.phone.Screen
 import com.example.needylivewallpaper.utils.phone.Time
 
 class Background : LayerManager() {
@@ -23,7 +26,7 @@ class Background : LayerManager() {
     }
 
     private var currentState = Time.currentState
-    private val layer0 = SimpleLayer(0)
+    private val layer0 = SimpleLayer(Size(Screen.width, Screen.height), 0)
     private val backgroundImg = StaticNode(
         layer0,
         ResourceManager.load(NeedyWallpaperService.assets, DEFAULT)
