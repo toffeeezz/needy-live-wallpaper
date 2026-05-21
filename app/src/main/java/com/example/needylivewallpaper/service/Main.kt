@@ -1,7 +1,7 @@
 package com.example.needylivewallpaper.service
 
 import com.example.needylivewallpaper.comp.Background
-import com.example.needylivewallpaper.graphx.Renderer
+import com.example.needylivewallpaper.graphx.render.Renderer
 
 class Main {
 
