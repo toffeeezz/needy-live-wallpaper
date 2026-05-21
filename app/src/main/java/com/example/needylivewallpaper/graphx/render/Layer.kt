@@ -15,7 +15,7 @@ abstract class Layer(size: Size ?= null, var zOrder: Int) {
     }
 
     init {
-        this.size = size ?: Size(0, 0)
+        this.size = size ?: Size(Screen.width, Screen.height)
     }
 
 
